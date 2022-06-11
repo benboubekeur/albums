@@ -14,7 +14,7 @@ fetch('https://jsonplaceholder.typicode.com/albums')
 
 <template>
     <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
-    <div v-else-if="data">
+    <div v-else-if="data" class="w-full">
         <ul class="list-outside hover:list-inside">
             <li v-for="album in data" :key="album.id">
                 <router-link :to="{ name: 'album', params: { id: album.id } }">

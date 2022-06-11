@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Albums from '../views/Albums'
+import Albums from '../views/Albums.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -1,9 +1,11 @@
 <script setup>
-import Albums from '@/components/Albums'
+import Albums from '@/components/Albums.vue'
 </script>
 
 <template>
-    <main>
-        <Albums />
+    <main class=" ">
+        <div class=" max-w-sm mx-auto">
+            <Albums/>
+        </div>
     </main>
 </template>
