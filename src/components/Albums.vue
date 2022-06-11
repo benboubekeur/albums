@@ -1,15 +1,23 @@
 <script setup>
-import { ref } from 'vue'
+import {onMounted, ref} from 'vue'
+import {useRoute} from "vue-router";
 
 const data = ref(null)
 const error = ref(null)
+const ALBUMS_URL = 'https://jsonplaceholder.typicode.com/albums';
 
 
-fetch('https://jsonplaceholder.typicode.com/albums')
-    .then((res) => res.json())
-    .then((json) => (data.value = json))
-    .catch((err) => (error.value = err))
+function fetchAlbums() {
+    fetch(ALBUMS_URL)
+        .then((res) => res.json())
+        .then((json) => (data.value = json))
+        .catch((err) => (error.value = err))
+}
 
+onMounted(() => {
+    fetchAlbums();
+
+})
 </script>
 
 <template>

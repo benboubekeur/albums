@@ -6,15 +6,26 @@ const data = ref(null)
 const error = ref(null)
 
 
-onMounted(() => {
+function fetchAlbum(albumId) {
 
-    const albumId = useRoute().params.id
-    console.warn(`Album ID is ${albumId}`)
 
     fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`)
         .then((res) => res.json())
         .then((json) => (data.value = json))
         .catch((err) => (error.value = err))
+}
+function isValidID(str) {
+    return /^([1-9]\d*)$/.test(str);
+}
+onMounted(() => {
+    const albumId = useRoute().params.id
+
+    if (!isValidID(albumId)){
+        alert('Invalid ID ')
+        return
+    }
+    fetchAlbum(albumId)
+
 })
 </script>
 
