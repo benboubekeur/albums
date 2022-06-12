@@ -1,5 +1,5 @@
 <script setup>
-import {ref, onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 import {useRoute} from 'vue-router'
 
 const data = ref(null)
@@ -14,13 +14,15 @@ function fetchAlbum(albumId) {
         .then((json) => (data.value = json))
         .catch((err) => (error.value = err))
 }
+
 function isValidID(str) {
     return /^([1-9]\d*)$/.test(str);
 }
+
 onMounted(() => {
     const albumId = useRoute().params.id
 
-    if (!isValidID(albumId)){
+    if (!isValidID(albumId)) {
         alert('Invalid ID ')
         return
     }
@@ -32,11 +34,11 @@ onMounted(() => {
 <template>
     <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
     <div v-else-if="data">
-        <ul class="list-outside hover:list-inside">
-            <li v-for="photo in data" :key="photo.id" class="flex items-center">
+        <div class="grid pt-4 grid-cols-1  sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+            <div v-for="photo in data" :key="photo.id">
 
                 <div
-                    class="max-w-sm m-auto bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mb-1  ">
+                    class="  bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mb-1  ">
                     <a :href="photo.url">
 
                         <div class="flex flex-col items-center pb-10">
@@ -48,8 +50,8 @@ onMounted(() => {
                         </div>
                     </a>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
 
     </div>
     <div v-else>Loading...</div>
