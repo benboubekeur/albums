@@ -1,5 +1,12 @@
 <script setup>
 import {onMounted, ref} from 'vue'
+import Pagination from '@ocrv/vue-tailwind-pagination'
+
+
+let currentPage = ref(1)
+let perPage = ref(2)
+let total = ref(20)
+
 
 const data = ref(null)
 const error = ref(null)
@@ -7,12 +14,19 @@ const ALBUMS_URL = 'https://jsonplaceholder.typicode.com/albums';
 
 
 function fetchAlbums() {
-    fetch(ALBUMS_URL)
+    fetch(getRequestUrl())
         .then((res) => res.json())
         .then((json) => (data.value = json))
         .catch((err) => (error.value = err))
 }
 
+const getRequestUrl = () => {
+    return `${ALBUMS_URL}?_page=${currentPage}&_limit=${perPage}`
+}
+const pageChanged = (event) => {
+    currentPage = event
+    console.warn(`Page is ${event}`)
+}
 onMounted(() => {
     fetchAlbums();
 
@@ -33,7 +47,7 @@ onMounted(() => {
             </router-link>
 
         </div>
-
+        <Pagination :current="currentPage" :per-page="perPage" :total="total" @page-changed="pageChanged($event)"/>
     </div>
     <div v-else>Loading...</div>
 

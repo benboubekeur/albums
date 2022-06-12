@@ -28,6 +28,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@ocrv/vue-tailwind-pagination@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@ocrv/vue-tailwind-pagination/-/vue-tailwind-pagination-0.0.4.tgz#c47f1adff137cf975c5a932785f47ac474df185c"
+  integrity sha512-HVAqa18gh6Nk4o3scqB8zZbXUhoJgFjIGm49N1Wc4q8XMo09jBSqo4OsNAFrYIDK5cK/Et8fH1NgLgzjVCDljQ==
+  dependencies:
+    vue "^3.0.5"
+
 "@vitejs/plugin-vue@^2.3.3":
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-2.3.3.tgz#fbf80cc039b82ac21a1acb0f0478de8f61fbf600"
@@ -751,7 +758,7 @@ vue-router@^4.0.15:
   dependencies:
     "@vue/devtools-api" "^6.0.0"
 
-vue@^3.2.36:
+vue@^3.0.5, vue@^3.2.36:
   version "3.2.37"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.37.tgz#da220ccb618d78579d25b06c7c21498ca4e5452e"
   integrity sha512-bOKEZxrm8Eh+fveCqS1/NkG/n6aMidsI6hahas7pa0w/l7jkbssJVsRhVDs07IdDq7h9KHswZOgItnwJAgtVtQ==
