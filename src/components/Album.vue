@@ -2,7 +2,7 @@
 import {onMounted, ref, watch} from 'vue'
 import {useRoute} from 'vue-router'
 import Pagination from '@ocrv/vue-tailwind-pagination'
-import AlbumElement from "./AlbumElement.vue";
+import Photo from "./PhotoElement.vue";
 
 const data = ref(null)
 const error = ref(null)
@@ -55,7 +55,7 @@ onMounted(() => {
         <div class="grid pt-4 grid-cols-1  sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 
             <div v-for="photo in data" :key="photo.id">
-                <AlbumElement :photo="photo"/>
+                <photo :photo="photo"/>
             </div>
         </div>
         <div class="grid pt-4 grid-cols-1  w-full">
